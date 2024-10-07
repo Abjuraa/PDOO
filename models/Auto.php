@@ -7,8 +7,8 @@ class Auto {
     }
 
     public function obtenerDatos() {
-        $stmt = $this->pdo->query("SELECT nombre, descripcion, valor FROM autos");
+        $stmt = $this->pdo->query("SELECT * FROM autos");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-?>
+?>  

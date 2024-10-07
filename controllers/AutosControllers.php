@@ -1,5 +1,6 @@
 <?php
-require_once '../models/Auto.php'; // Asegúrate de que esta ruta es correcta
+require './models/Auto.php';
+require_once './config/database.php';
 
 class Controlador {
     private $modelo;
@@ -12,10 +13,10 @@ class Controlador {
         $datos = $this->modelo->obtenerDatos(); 
 
         if ($datos === false || !is_array($datos)) {
-            $datos = []; // Asegúrate de que 'datos' siempre esté definido
+            $datos = []; 
         }
 
-        include '../views/autos/index.php'; // Asegúrate de que la ruta es correcta
+        include './views/index.php'; 
     }
 }
 ?>
