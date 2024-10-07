@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+}
+
+.header-car {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: black;
+    border-bottom: 1px solid wheat;
+    flex-direction: row;
+}
+
+.header-car p {
+    color: wheat;
+    font-size: 40px;
+    padding-left: 20px;
+}
+
+.header-car input {
+    background-color: #ffffff;
+    height: 60px;
+    width: 800px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.header-car span {
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 0px;
+    width: 95%;
+    gap: 40px;
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+.card {
+    margin: 5px;
+    gap: 0;
+}
+
+.card img {
+    display: flex;
+    width: 100%;
+}
+
+.card h3 {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
+    font-size: 40px;
+}
+
+.descr {
+    padding: 15px 15px;
+    font-size: 18px;
+}
+
+.price {
+    padding: 15px 15px;
+    font-size: 18px;
+
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    color: wheat;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-top: 40px;
+}
