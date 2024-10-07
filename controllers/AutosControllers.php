@@ -1,22 +1,22 @@
 <?php
-require './models/Auto.php';
+require_once './models/Auto.php';
 require_once './config/database.php';
 
 class Controlador {
-    private $modelo;
+    private $db;
+    private $productModel;
 
-    public function __construct($pdo) {
-        $this->modelo = new Auto($pdo);
+    public function __construct() {
+        $database = new Database();
+        $this->db = $database->getConnection();
+
+        $this->productModel = new Auto($this->db);
     }
 
     public function mostrarDatos() {
-        $datos = $this->modelo->obtenerDatos(); 
-
-        if ($datos === false || !is_array($datos)) {
-            $datos = []; 
-        }
-
-        include './views/index.php'; 
+        $datos = $this->productModel->obtenerDatos();
+        
+        require_once './views/index.php';
     }
 }
 ?>
