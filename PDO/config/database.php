@@ -1,22 +1,17 @@
 <?php
-    class Database {
+    $host = "localhost";
+    $dbname = "pdo";
+    $username = "root";
+    $password = "";
 
-        private $host = "localhost";
-        private $db_name = "autos";
-        private $username = "root";
-        private $password = "";
-        public $conn;
-
-
-        public function getConnection() {
-            $this->conn = null;
-            try {
-                $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-                $this->conn->exec("set names utf8");
-            } catch(PDOException $exception) {
-                echo "Error de conexión: " . $exception->getMessage();
-            }
-            return $this->conn;
-        }
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Conexión exitosa";
+    } catch (PDOException $e) {
+        echo "Conexión fallida: " . $e->getMessage();
     }
+
+    $controlador = new controlador($pdo);
+    $controlador->mostrarDatos();
 ?>

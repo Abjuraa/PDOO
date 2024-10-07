@@ -1,15 +1,21 @@
 <?php
-    require_once './app/models/Auto.php';
-    require_once 'config/database.php';
+require_once '../models/Auto.php'; // Asegúrate de que esta ruta es correcta
 
-    class AutosController {
-        public function index() {
-            // Obtener autos desde el modelo
-            $autosModel = new Auto();
-            $autos = $autosModel->getAllAutos(); // Asumiendo que tienes un método para obtener todos los autos
-            
-            // Pasar los datos a la vista
-            require_once '../app/views/autos/index.php';
-        }
+class Controlador {
+    private $modelo;
+
+    public function __construct($pdo) {
+        $this->modelo = new Auto($pdo);
     }
-?>  
+
+    public function mostrarDatos() {
+        $datos = $this->modelo->obtenerDatos(); 
+
+        if ($datos === false || !is_array($datos)) {
+            $datos = []; // Asegúrate de que 'datos' siempre esté definido
+        }
+
+        include '../views/autos/index.php'; // Asegúrate de que la ruta es correcta
+    }
+}
+?>

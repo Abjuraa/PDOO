@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="navbar">
@@ -19,18 +20,21 @@
             </div>
         </div>
     </header>
+    
     <div class="container">
-        <?php foreach($autos as $auto): ?>  <!-- Itera sobre los autos obtenidos desde la base de datos -->
+        <?php foreach ($datos as $auto): ?>
             <div class="card">
-                <img src="/public/img/ferrari-f40.avif" alt="Imagen del auto"> <!-- Cambia la imagen por la ruta correcta -->
-                <h3><?php echo htmlspecialchars($auto['nombre']); ?></h3> <!-- Muestra el nombre del auto -->
-                <p class="descr"><?php echo htmlspecialchars($auto['descripcion']); ?></p> <!-- Muestra la descripción del auto -->
-                <p class="price">$<?php echo htmlspecialchars($auto['precio']); ?></p> <!-- Muestra el precio del auto -->
+                <img src="../../../public/img/ferrari-f40.avif" alt="Imagen del auto">
+                <h3><?php echo htmlspecialchars($auto['nombre']); ?></h3>
+                <p class="descr"><?php echo htmlspecialchars($auto['descripcion']); ?></p>
+                <p class="price"><?php echo htmlspecialchars($auto['valor']); ?></p>
             </div>
         <?php endforeach; ?>
     </div>
+
     <footer>
         <p>Copyright 2024 - All rights reserved</p>
     </footer>
 </body>
+
 </html>

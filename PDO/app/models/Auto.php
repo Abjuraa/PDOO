@@ -1,22 +1,14 @@
-<?php 
-    class Auto {
-        private $conn;
-        private $table_name = 'autos';
+<?php
+class Auto {
+    private $pdo;
 
-        public $id;
-        public $nombre;
-        public $descripcion;
-        public $valor:
-
-        public function __construct($db) {
-            $this->conn = $db;
-        }
-
-        public function leerTodos(){
-            $query = 'SELECT * FROM ' . $this->table_name;
-            $stmt = $this->conn->prepare($query);
-            $stmt->execute();
-            return $stmt;
-        }
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
+
+    public function obtenerDatos() {
+        $stmt = $this->pdo->query("SELECT nombre, descripcion, valor FROM autos");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
 ?>
