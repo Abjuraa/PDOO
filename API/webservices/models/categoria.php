@@ -11,5 +11,15 @@ class Categoria extends Conectar{
 
         return $resutado = $sql -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function get_categoria_x_id(){
+        $conectar = parent::iniciar_conexion();
+        parent::set_names();
+        $sql = "SELECT * FROM `categoria` WHERE est = 1 AND 'cat_id' = 1 ";
+        $sql = $conectar -> prepare($sql);
+        $sql -> execute();
+
+        return $resutado = $sql -> fetchAll(PDO::FETCH_ASSOC);
+    }
 }                
 ?>
