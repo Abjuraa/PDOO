@@ -15,9 +15,9 @@ switch($_GET["op"]){
         echo json_encode($datos);
         break;
 
-    case "GetId":
-        $datos = $categoria -> get_categoria_x_id($body["cat_id"]);
-        echo json_encode(value: $datos);                           
-        break;                                                                                      
+        case "GetId":
+            $datos = $categoria->get_by_id($body);
+            echo json_encode($datos);
+            break;                                                                                     
 } 
 ?>      

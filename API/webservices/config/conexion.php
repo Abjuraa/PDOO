@@ -6,7 +6,7 @@
         protected function conexion(){
             try{
                 $conectar = $this -> dbh = new PDO("mysql:host=localhost;dbname=webservices", "root", "");
-                echo "Conexion exitosa";
+                
                 return $conectar;
             } catch(Exception $e) {
                 echo "Error en la base de datos: " . $e ->getMessage() . "<br>";
